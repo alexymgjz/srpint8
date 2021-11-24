@@ -39,15 +39,19 @@ import {Observable} from "rxjs";
 })
 export class WarService {
  url:string='https://swapi.dev/api/starships/?page=';
+ shipsUrl:string='https://swapi.dev/api/starships/';
 
 
 
   constructor(private http:HttpClient) { }
 
 
-  getData(page:number):Observable<DataTotalI[]>{
-    return this.http.get<DataTotalI[]>(`${this.url} + ${page}`)
+  getData(page:number):Observable<DataTotalI>{
+    return this.http.get<DataTotalI>(`${this.url} + ${page}`)
   }
 
 
+  getStarships(i:number) {
+    return this.http.get<DataTotalI>(`${this.shipsUrl} + ${i}`)
+  }
 }
