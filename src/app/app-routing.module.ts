@@ -14,7 +14,7 @@ const routes: Routes = [
     path: 'list' , component: ListComponent ,
   },
   {
-    path: 'detalles' , component: DetallesComponent ,
+    path: 'detalles/:id' , component: DetallesComponent ,
   }
 ];
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient } from "@angular/common/http";
 import {Observable} from "rxjs";
-
+import {StarshipI} from './detalles/detalles.component';
 
 //1 definimos el tipo
  export interface DataTotalI{
@@ -39,7 +39,7 @@ import {Observable} from "rxjs";
 })
 export class WarService {
  url:string='https://swapi.dev/api/starships/?page=';
- shipsUrl:string='https://swapi.dev/api/starships/';
+
 
 
 
@@ -51,7 +51,7 @@ export class WarService {
   }
 
 
-  getStarships(i:number) {
-    return this.http.get<DataTotalI>(`${this.shipsUrl} + ${i}`)
+  getStarships(url:string) {
+    return this.http.get<StarshipI>(url)
   }
 }

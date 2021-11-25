@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DataTotalI, WarService} from '../war.service';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-list',
@@ -8,9 +9,9 @@ import {DataTotalI, WarService} from '../war.service';
 })
 export class ListComponent implements OnInit {
   datos = {} as DataTotalI
-  Starship = {} as DataTotalI
 
-  constructor(public war:WarService) {
+
+  constructor(public war:WarService,private route: ActivatedRoute,private router: Router) {
 
   }
 
@@ -20,11 +21,8 @@ export class ListComponent implements OnInit {
     })
   }
 
-  getStarship(i: number) {
-   this.war.getStarships(i).subscribe(data => {
-      this.Starship = data;
-    })
-    console.log(this.war.shipsUrl+i)
-    console.log(this.Starship.results)
+
+ async goTO(url:string) {
+   await this.router.navigate([`detalles/`, url]);
   }
 }

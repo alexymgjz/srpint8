@@ -22,12 +22,14 @@
     </div>
 
   </div>-->
-  <ul class="list-group" routerLink="detalles">
-    <li class="list-group-item " *ngFor="let dato of datos?.results; let i = index"  >
-      <a  class="d-block text-decoration-none text-18 bg-light bg-opacity-50">Presupuesto: {{dato?.name}}</a>
-      <a class="d-block text-decoration-none  text-14 bg-light bg-opacity-50">Nombre:{{dato?.model}}</a>
-    </li>
-  </ul>
+  <div class="list-group">
+    <div class="list-group-item "   *ngFor="let dato of datos?.results; let i = index"  >
+      <button (click)="goTO(dato.url)">
+        <span  class="d-block text-decoration-none text-18 bg-light bg-opacity-50">Presupuesto: {{dato?.name}}</span>
+        <span class="d-block text-decoration-none  text-14 bg-light bg-opacity-50">Nombre:{{dato?.model}}</span>
+      </button>
+  </div>
+</div>
 </div>
 
 
