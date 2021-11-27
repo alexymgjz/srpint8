@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {DataTotalI, WarService} from '../war.service';
+import {WarService} from '../war.service';
+import {DatosTotalesI} from '../modelos/datos-totales-i';
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
@@ -8,7 +9,7 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  datos = {} as DataTotalI
+  datos = {} as DatosTotalesI
 
 
   constructor(public war:WarService,private route: ActivatedRoute,private router: Router) {

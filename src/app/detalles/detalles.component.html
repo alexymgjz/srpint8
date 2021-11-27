@@ -1,9 +1,10 @@
 
 <div>
-  <p class="text-light">{{Starship.name}}</p>
-  <p class="text-light">Model: {{Starship.model}}</p>
-  <p class="text-light">Manufacturer: {{Starship.manufacturer}}</p>
-  <p class="text-light">Cost_in_credits: {{Starship.cost_in_credits}}</p>
-  <p class="text-light">Atmosphering speed: {{Starship.max_atmosphering_speed}}</p>
-  <p class="text-light">Crew: {{Starship.crew}}</p>
+  <p class="text-light">{{Starship?.name}}</p>
+  <img #asimg src="https://starwars-visualguide.com/assets/img/starships/{{Starship?.id}}.jpg"  (error)="loadDefault()"  alt="img" width="100%">
+  <p class="text-light">Model: {{Starship?.model}}</p>
+  <p class="text-light">Manufacturer: {{Starship?.manufacturer}}</p>
+  <p class="text-light">Cost_in_credits: {{Starship?.cost_in_credits}}</p>
+  <p class="text-light">Atmosphering speed: {{Starship?.max_atmosphering_speed}}</p>
+  <p class="text-light">Crew: {{Starship?.crew}}</p>
 </div>
