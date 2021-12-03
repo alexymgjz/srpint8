@@ -10,6 +10,7 @@ import{DatosTotalesI} from './modelos/datos-totales-i';
 })
 export class WarService {
  url:string='https://swapi.dev/api/starships/?page=';
+ page:number=1;
 
 
 
@@ -17,8 +18,8 @@ export class WarService {
   constructor(private http:HttpClient) { }
 
 
-  getData(page:number):Observable<DatosTotalesI>{
-    return this.http.get<DatosTotalesI>(`${this.url} + ${page}`)
+  getData():Observable<DatosTotalesI>{
+    return this.http.get<DatosTotalesI>(`${this.url} + ${this.page}`)
   }
 
 

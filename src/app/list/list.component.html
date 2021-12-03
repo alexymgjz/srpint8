@@ -1,35 +1,17 @@
-
-<div class="container py-4">
-
-  <!--  <div class="accordion accordion-flush " id="accordionFlushExample">
-    <div class="accordion-item" *ngFor="let dato of datos?.results; let i = index ">
-      <h2 class="accordion-header p-0 m-0 bg-success" id="flu">
-        <button  class="accordion-button collapsed d-flex gap-3 justify-content-center m-0 p-0 align-items-start" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse'+i"  aria-expanded="false" aria-controls="flush-collapseOne">
-          <a class="d-block text-decoration-none bg-light bg-opacity-50">Presupuesto: {{dato?.name}}</a>
-          <a class="d-block text-decoration-none bg-light bg-opacity-50">Nombre:{{dato?.model}}</a>
-        </button>
-      </h2>
-      <div [id]="'collapse'+i"  class="accordion-collapse collapse bg-success bg-opacity-75" aria-labelledby="flu" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body d-flex flex-column p-0" >
-          <p class="m-0 p-2 border-radius-8 bg-opacity-50 bg-light " >{{dato?.url}}</p>
-          &lt;!&ndash;        <p class="m-0 p-2 border-radius-8 bg-opacity-50 bg-light " *ngIf="item.pageCantidad != 1">numero de paginas Solicitadas:({{item.pageCantidad}})</p>
-                  <p class="m-0 p-2 border-radius-8 bg-opacity-50 bg-light " *ngIf="item.idiomaCantidad != 1">numero de idiomas Solicitados:({{item.idiomaCantidad}})</p>
-                  <p class="m-0 p-2 border-radius-8 bg-opacity-50 bg-light " *ngIf="item.seoActive == 'true'">Consultoria SEO (Solicitada)</p>
-                  <p class="m-0 p-2 border-radius-8 bg-opacity-50 bg-light " *ngIf="item.adsActive == 'true'">Campaya de Google Ads (Solicitada)</p>
-                  <p class="m-0 p-2 border-radius-8 bg-opacity-50 bg-light fs-3 fst-italic" *ngIf="item.totalPrecios">Total a pagar:({{item.totalPrecios}}€)</p>
-           &ndash;&gt;     </div>
-      </div>
-    </div>
-
-  </div>-->
-  <div class="list-group">
-    <div class="list-group-item "   *ngFor="let dato of datos?.results; let i = index"  >
-      <button (click)="goTO(dato.url)">
-        <span  class="d-block text-decoration-none text-18 bg-light bg-opacity-50">Presupuesto: {{dato?.name}}</span>
-        <span class="d-block text-decoration-none  text-14 bg-light bg-opacity-50">Nombre:{{dato?.model}}</span>
+<div class="container-fluid px-4">
+  <div class="list-group d-flex d-block overflow-scroll " >
+    <div class="list-group-item d-block bg-gr "   *ngFor="let dato of datos?.results; let i = index" >
+      <button class="text-start  w-100 btn bg-gr " (click)="goTO(dato.url)">
+        <span  class="d-block text-decoration-none text-18  bg-opacity-50">Presupuesto: {{dato?.name}}</span>
+        <span class="d-block text-decoration-none  text-14  bg-opacity-50">Nombre:{{dato?.model}}</span>
       </button>
+
   </div>
-</div>
+    <div class="d-flex w-100">
+      <button class="w-100 text-light btn btn-outline-dark " (click)="next()">view more</button>
+      <button class="w-100 text-light btn btn-outline-dark " (click)="prev()">Go back</button>
+    </div>
+  </div>
 </div>
 
 

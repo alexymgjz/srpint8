@@ -1,13 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-*{
-  color: #909090;
-}
-.text-18{
-  font-size:18px;
-  color: #909090;
-   font-weight: 600;
-}
-.text-14{
-  font-size:14px;
-  color: #909090;
+.active{
+  border-bottom: 2px solid aqua;
+  color: #ffffff;
 }

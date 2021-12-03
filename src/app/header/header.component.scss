@@ -1,3 +1,7 @@
+.active{
+  border-bottom: 2px solid aqua;
+  color: #ffffff;
+}
 .text-18{
   font-size:18px;
   color: #909090;
@@ -7,19 +11,22 @@
   font-size:14px;
   color: #909090;
 }
-
-
-.texto{
-  font-size: xx-large;
-  font-style:italic ;
+.ms-6{
+  margin-left: 4rem;
 }
-.active{
+
+.noOutLine{
   color: #ffffff;
   outline: blue;
   background-color: rgba(255, 0, 0, 0);
   border-color: rgba(255, 0, 0, 0);
-  border-bottom: 2px solid rgba(0, 255, 255, 0.34);
   :focus{
-    border-bottom: 2px solid rgba(0, 255, 255, 0.34);
-  }
+    border-bottom: 2px solid rgba(0, 255, 255, 0.34) !important;
+    color: rgba(28, 28, 28, 0);
+
+
+}
+}
+:active{
+  color: #d0baba
 }

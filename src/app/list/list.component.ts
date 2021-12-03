@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {WarService} from '../war.service';
 import {DatosTotalesI} from '../modelos/datos-totales-i';
 import {ActivatedRoute, Router} from "@angular/router";
@@ -17,7 +17,7 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.war.getData(1).subscribe(data => {
+    this.war.getData().subscribe(data => {
      this.datos = data;
     })
   }
@@ -25,5 +25,23 @@ export class ListComponent implements OnInit {
 
  async goTO(url:string) {
    await this.router.navigate([`detalles/`, url]);
+ }
+
+  next() {
+    if (this.war.page>=1)
+    this.war.page++
+
+    this.war.getData().subscribe(data => {
+      this.datos = data;
+    })
   }
+  prev() {
+    if (this.war.page>1)
+      this.war.page--
+
+    this.war.getData().subscribe(data => {
+      this.datos = data;
+    })
+  }
+
 }

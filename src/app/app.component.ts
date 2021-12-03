@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'srpint8';
+
+
+  doSomethingOnInternalScroll(e:Event){
+    console.log(e);
+  }
 }

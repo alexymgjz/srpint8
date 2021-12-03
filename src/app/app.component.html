@@ -1,8 +1,17 @@
+ <app-header></app-header>
 
-<button class="text-18" routerLink="home" routerLinkActive="activem">HOME</button>
-<button class="text-18"  routerLink="list" routerLinkActive="activem" >STARSHIPS</button>
-<button class="text-18"  routerLink="detalles/:id"  routerLinkActive="activem" >DETAILS</button>
 
-<router-outlet></router-outlet>
+  <div class="d-flex w-100 justify-content-center border border-dark mt-5">
+    <button class="btn btn-outline-dark text-18" routerLink="home" routerLinkActive="active">HOME</button>
+    <button class="btn btn-outline-dark text-18"  routerLink="list" routerLinkActive="active" >STARSHIPS</button>
+  </div>
+
+  <router-outlet></router-outlet>
+
+  <br>
+  <br>
+  <br>
+
+
 
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ export class HomeComponent implements OnInit {
   detailsActive: boolean=false;
   homeActive: boolean=false;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -30,4 +31,9 @@ export class HomeComponent implements OnInit {
     this.detailsActive = false;
     this.listActive = true;
   }
+
+  async goToNaves() {
+    await this.router.navigate([`list`]);
+  }
+
 }

@@ -1,10 +1,23 @@
 
-<div>
-  <p class="text-light">{{Starship?.name}}</p>
-  <img #asimg src="https://starwars-visualguide.com/assets/img/starships/{{Starship?.id}}.jpg"  (error)="loadDefault()"  alt="img" width="100%">
-  <p class="text-light">Model: {{Starship?.model}}</p>
-  <p class="text-light">Manufacturer: {{Starship?.manufacturer}}</p>
-  <p class="text-light">Cost_in_credits: {{Starship?.cost_in_credits}}</p>
-  <p class="text-light">Atmosphering speed: {{Starship?.max_atmosphering_speed}}</p>
-  <p class="text-light">Crew: {{Starship?.crew}}</p>
+<div class="d-flex flex-column align-items-center justify-content-center">
+  <img #asimg src="https://starwars-visualguide.com/assets/img/starships/{{Starship?.id }}.jpg"  (error)="loadDefault()"  alt="img" width="90%">
+  <div class="d-flex flex-column w-100  px-5">
+    <p class="text-18 text-uppercase h1 fw-bolder pt-4">{{Starship?.name}}</p>
+    <p class="text-18">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, est expedita harum labore mollitia natus sapiente unde velit? Accusamus ad animi corporis delectus deleniti earum esse est excepturi exercitationem explicabo fuga impedit incidunt ipsum maxime natus neque odit provident quaerat quia quidem  voluptates.</p>
+    <div class="d-flex w-100 justify-content-between">
+      <p class="w-50 text-14">Model: {{Starship?.model}}</p>
+      <p class="w-50 text-14">Manufacturer: {{Starship?.manufacturer}}</p>
+    </div>
+    <div class="d-flex w-100 justify-content-between">
+      <p class=" w-50 text-14">Cost_in_credits: {{Starship?.cost_in_credits}}</p>
+      <p class=" w-50 text-14">Cost_in_credits: {{Starship?.length}}</p>
+    </div>
+    <div class="d-flex w-100 justify-content-between">
+      <p class=" w-50 text-14">Atmosphering speed: {{Starship?.max_atmosphering_speed}}</p>
+      <p class=" w-50 text-14">Crew: {{Starship?.crew}}</p>
+    </div>
+
+  </div>
+
+
 </div>
