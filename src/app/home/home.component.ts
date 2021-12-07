@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {LocalStorageService} from "../local-storage.service";
 
 @Component({
   selector: 'app-home',
@@ -11,9 +12,13 @@ export class HomeComponent implements OnInit {
   detailsActive: boolean=false;
   homeActive: boolean=false;
 
-  constructor(private route: ActivatedRoute,private router: Router) { }
+  constructor(private route: ActivatedRoute,private router: Router,public localstorage:LocalStorageService ) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    if (!this.localstorage.autenticado){
+      console.log('ok');
+    }
+    console.log('ok');
   }
 
   home() {

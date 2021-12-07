@@ -1,4 +1,4 @@
-<div class="container-fluid px-4">
+<div class="container-fluid px-4" *ngIf="localStorage.autenticado else elseBlock">
   <div class="list-group d-flex d-block overflow-scroll " >
     <div class="list-group-item d-block bg-gr "   *ngFor="let dato of datos?.results; let i = index" >
       <button class="text-start  w-100 btn bg-gr " (click)="goTO(dato.url)">
@@ -14,7 +14,13 @@
   </div>
 </div>
 
+<span></span>
+<ng-template #elseBlock class="w-100 ">
 
+  <p class="text-center text-18 my-5">You most  be Authenticated (<span data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="color: beige; cursor: pointer;"> SING UP </span> )
+    or (<span data-bs-toggle="modal" data-bs-target="#staticBackdrop1" style="color: beige; cursor: pointer;"> LOG IN </span> ).
+    So you can have access to all the ships info.</p>
 
+</ng-template>
 
 

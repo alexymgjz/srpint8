@@ -35,17 +35,19 @@ export class HeaderComponent implements OnInit {
   singUp() {
     if (this.register.value.Password == this.register.value.RepeatPassword && this.register.value.Password != '' && this.register.value.email != '' ){
      this.localStorage.restartStorage(this.register.value);
+     this.localStorage.autenticado=true;
      }
 
 
 
   }
  login(){
-   if ( this.verificarUsuario.value.Password != '' && this.verificarUsuario.value.email != '' ){
-     if (this.localStorage.checkLogIn(this.verificarUsuario.value.Email, this.verificarUsuario.value.Password )){
-      alert('ok');
-     }else{
-      alert('ko');
+   if (this.verificarUsuario.value.Password != '' && this.verificarUsuario.value.email != '') {
+     if (this.localStorage.checkLogIn(this.verificarUsuario.value.Email, this.verificarUsuario.value.Password)) {
+       alert('Ya puedes explorar nuestras naves');
+       this.localStorage.autenticado = true
+     } else {
+       alert('Usuario no valido ;Verifica tu email y tu contraseña o registrate');
      }
    }
 

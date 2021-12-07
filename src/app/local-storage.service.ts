@@ -9,6 +9,7 @@ interface verifyProfileI {
 export class LocalStorageService {
   profile = 'profile';
   verifyProfile = {} as verifyProfileI;
+  autenticado: boolean=false;
 
   constructor() {
   }

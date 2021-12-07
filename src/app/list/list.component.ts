@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {WarService} from '../war.service';
 import {DatosTotalesI} from '../modelos/datos-totales-i';
 import {ActivatedRoute, Router} from "@angular/router";
+import {LocalStorageService} from "../local-storage.service";
 
 @Component({
   selector: 'app-list',
@@ -12,7 +13,7 @@ export class ListComponent implements OnInit {
   datos = {} as DatosTotalesI
 
 
-  constructor(public war:WarService,private route: ActivatedRoute,private router: Router) {
+  constructor(public war:WarService, public  localStorage:LocalStorageService,private  route: ActivatedRoute,private router: Router) {
 
   }
 
