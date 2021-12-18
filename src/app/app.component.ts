@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {WarService} from "./war.service";
+
 
 @Component({
   selector: 'app-root',
@@ -6,8 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'srpint8';
+  title = 'sprint8';
+  constructor (public war:WarService){}
 
 
-
+  onScroll() {
+    console.log('scrolled!!');
+    /*this.war.next()*/ //uncoment for infinit scroll
+  }
 }

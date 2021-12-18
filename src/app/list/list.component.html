@@ -1,20 +1,24 @@
-<div class="container-fluid px-4" *ngIf="localStorage.autenticado else elseBlock">
-  <div class="list-group d-flex d-block overflow-scroll " >
-    <div class="list-group-item d-block bg-gr "   *ngFor="let dato of datos?.results; let i = index" >
+
+
+
+
+<div #list  class="container-fluid px-4 " *ngIf="localStorage.autenticado else elseBlock" [style.height.px]="screenHeight">
+  <button *ngIf="showButton" (click)="getHeight()">mostrar altura </button>
+  <div class="list-group d-flex d-block p-0 my-0 " >
+    <div class=" d-block bg-gr "   *ngFor="let dato of war.datos?.results; let i = index" >
       <button class="text-start  w-100 btn bg-gr " (click)="goTO(dato.url)">
         <span  class="d-block text-decoration-none text-18  bg-opacity-50">Presupuesto: {{dato?.name}}</span>
         <span class="d-block text-decoration-none  text-14  bg-opacity-50">Nombre:{{dato?.model}}</span>
       </button>
-
   </div>
     <div class="d-flex w-100">
-      <button class="w-100 text-light btn btn-outline-dark " (click)="next()">view more</button>
-      <button class="w-100 text-light btn btn-outline-dark " (click)="prev()">Go back</button>
+      <button class="w-100 text-light btn btn-outline-dark " (click)="war.prev()">Go back</button>
+      <button class="w-100 text-light btn btn-outline-dark " (click)="war.next()">view more</button>
     </div>
   </div>
 </div>
 
-<span></span>
+
 <ng-template #elseBlock class="w-100 ">
 
   <p class="text-center text-18 my-5">You most  be Authenticated (<span data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="color: beige; cursor: pointer;"> SING UP </span> )

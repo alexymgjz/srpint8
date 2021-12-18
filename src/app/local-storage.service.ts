@@ -23,6 +23,7 @@ export class LocalStorageService {
       localStorage.setItem(this.profile, JSON.stringify(register))
     }
   }
+
   checkLogIn(user:string , password:string){
     // @ts-ignore
     const actual = JSON.parse(localStorage.getItem(this.profile));

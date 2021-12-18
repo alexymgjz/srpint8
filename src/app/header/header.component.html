@@ -1,12 +1,13 @@
-<div class="w-100 d-flex justify-content-between">
+<div class="w-100 d-flex justify-content-between sticky-top">
 
 
   <div class="d-flex w-100 justify-content-between align-content-center ">
-    <div class=" p-5"></div>
+    <div class="p-5 text-light"></div>
     <img class="ms-6" src="assets/image/logo.png" width="170px" alt="img">
     <div class="d-flex gap-0 active-text">
-      <button class="btn btn-outline-dark noOutLine text-14 p-0 m-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" (click)="reset()">LOG IN /</button>
-      <button class="btn btn-outline-dark noOutLine text-14 p-0 me-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="reset()">/ SING UP</button>
+      <button *ngIf="!localStorage.autenticado" class="btn btn-outline-dark noOutLine text-14 p-0 m-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" (click)="reset() " > LOG IN /</button>
+      <button *ngIf="localStorage.autenticado"  class="btn btn-outline-dark noOutLine text-14 p-0 m-0" data-bs-toggle="modal" data-bs-target="#logout" > LOG OUT</button>
+      <button *ngIf="!localStorage.autenticado" class="btn btn-outline-dark noOutLine text-14 p-0 me-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="reset()">/ SING UP</button>
     </div>
   </div>
 
@@ -89,3 +90,22 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="logout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark">
+      <div class="modal-header">
+        <h5 class="modal-title text-light">Login out?</h5>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-light">Are you sure ,you want to LOG OUT?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-outline-dark" (click)="logout()" data-bs-dismiss="modal">LOG OUT</button>
+        <button type="button" class="btn btn-secondary btn-outline-dark" data-bs-dismiss="modal" >Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+

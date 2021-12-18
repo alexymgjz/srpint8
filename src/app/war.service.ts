@@ -9,10 +9,10 @@ import{DatosTotalesI} from './modelos/datos-totales-i';
   providedIn: 'root'
 })
 export class WarService {
- url:string='https://swapi.dev/api/starships/?page=';
+ url:string='https://swapi.py4e.com/api/starships/?page=';
  page:number=1;
 
-
+  datos = {} as DatosTotalesI
 
 
   constructor(private http:HttpClient) { }
@@ -26,4 +26,32 @@ export class WarService {
   async getStarships(url:string) {
     return await this.http.get<StarshipI>(url).toPromise();
   }
+
+ next() {
+
+  let promedio = Math.round((Number(this.datos.count))/10)
+    console.log('promedio '+ promedio);
+    console.log('PAGE ' + this.page);
+    if (this.page <= promedio){
+      this.getData().subscribe(data => {
+        this.datos = data;
+        this.page++
+      })
+    }else this.page=1;
+
+    }
+
+
+
+  prev() {
+    if ( this.page >= 2)
+      this.page--
+
+    this.getData().subscribe(data => {
+      this.datos = data;
+    })
+
+  }
+
+
 }

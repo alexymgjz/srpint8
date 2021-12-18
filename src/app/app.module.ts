@@ -9,7 +9,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { DetallesComponent } from './detalles/detalles.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
-
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +23,8 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,6 @@
 import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {WarService} from "../war.service";
-import {ActivatedRoute, ParamMap} from "@angular/router";
-import {StarshipI} from '../modelos/startship-i';
-import {BehaviorSubject} from "rxjs";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Starship} from "../modelos/startship";
 
 
@@ -23,7 +21,8 @@ export class DetallesComponent implements OnInit {
   constructor(
     public war:WarService,
     private route: ActivatedRoute,
-    private Render2 :Renderer2
+    private Render2 :Renderer2,
+    private router :Router
   ) {
   }
 
@@ -40,25 +39,18 @@ export class DetallesComponent implements OnInit {
     this.Starship = await this.war.getStarships(url);
     // @ts-ignore
     let idArr = this.Starship.url.split("/");
-    this.Starship.id = idArr[idArr.length - 2]
-
-    //this.Starship.next(promiseStarship);
-    // console.log('aaaaaaaa111111');
-    // console.log(this.Starship);
-    // console.log('aaaaaaaa111111');
-
-    // promiseStarship.subscribe(data => {
-    //   this.Starship = data;
-    //   let idArr = data.url.split("/");
-      //this.Starship.id = idArr[idArr.length - 2]
-     // })
+    this.Starship.id = idArr[idArr.length - 2];
   }
 
  async loadDefault() {
-  console.log('assdasdasdas')
-
   let asimg = this.img.nativeElement;
   await this.Render2.setAttribute(asimg , 'src','assets/image/big-placeholder.jpg' )
+
+  }
+
+  async goTo() {
+
+      await this.router.navigate(['/list']);
 
   }
 }
