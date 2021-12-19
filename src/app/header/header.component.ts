@@ -35,8 +35,7 @@ export class HeaderComponent implements OnInit {
   singUp() {
 
     if (this.register.value.Password == this.register.value.RepeatPassword && this.register.value.Password != '' && this.register.value.email != '' ){
-     console.log ('hola')
-      this.localStorage.restartStorage(this.register.value);
+     this.localStorage.restartStorage(this.register.value);
      this.localStorage.autenticado=true;
      }
   }

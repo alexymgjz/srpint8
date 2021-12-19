@@ -16,9 +16,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(){
     if (!this.localstorage.autenticado){
-      console.log('ok');
     }
-    console.log('ok');
+
   }
 
   home() {

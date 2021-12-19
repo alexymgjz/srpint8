@@ -30,8 +30,6 @@ export class WarService {
  next() {
 
   let promedio = Math.round((Number(this.datos.count))/10)
-    console.log('promedio '+ promedio);
-    console.log('PAGE ' + this.page);
     if (this.page <= promedio){
       this.getData().subscribe(data => {
         this.datos = data;

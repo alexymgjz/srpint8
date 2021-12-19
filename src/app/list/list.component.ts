@@ -67,14 +67,12 @@ export class ListComponent implements OnInit {
 
 
     // podemos hacer el scroll infinito con este codigo pero podemos usar una  de angular
-     if ( yOffSet>0  || scrollTop > 0){
-       this.war.next()
+    if ( yOffSet>0  || scrollTop > 0){
+
        if (this.war.page > 5){
-
          this.war.page=1;
-         this.war.next()
-       }
-
+      }
+       this.war.next()
  }
 
   }

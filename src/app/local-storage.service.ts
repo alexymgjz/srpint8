@@ -15,7 +15,6 @@ export class LocalStorageService {
   }
 
   restartStorage(register?: FormBuilder) {
-    console.log('hola');
     // @ts-ignore
     const actual = JSON.parse(localStorage.getItem(this.profile));
     this.verifyProfile=actual;
