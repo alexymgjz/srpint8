@@ -10,16 +10,21 @@ import { DetallesComponent } from './detalles/detalles.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { PilotsComponent } from './pilots/pilots.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     DetallesComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    PilotsComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

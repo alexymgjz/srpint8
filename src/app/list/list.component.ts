@@ -1,19 +1,32 @@
-import {Component, ElementRef, HostListener, Inject, NgModule, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, Inject, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {WarService} from '../war.service';
 import {ActivatedRoute, Router} from "@angular/router";
 import {LocalStorageService} from "../local-storage.service";
 import {DOCUMENT} from "@angular/common";
+import {DatosTotalesI} from "../modelos/datos-totales-i";
+import {round} from "@popperjs/core/lib/utils/math";
+import {fadeIn, fader, stepper} from "../route-animations";
+
+
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
+  animations:[
+    fadeIn,fader,stepper
+  ]
 })
+
 export class ListComponent implements OnInit {
   showButton = false;
   public screenHeight: any;
+  pageActual = 1;
+  totalPages = 1;
+  public datos = {} as DatosTotalesI
   // @ts-ignore
   @ViewChild('list') list:ElementRef;
+
 
 
   constructor(@Inject(DOCUMENT) private document :Document,
@@ -21,34 +34,26 @@ export class ListComponent implements OnInit {
               public localStorage:LocalStorageService,
               private  route: ActivatedRoute,
               private Render2 :Renderer2,
-              private router: Router) {}
+              private router: Router) {
+}
 
-  /*   @HostListener('mousewheel', ['$event'])
-    scroll(event: MouseEvent) {
-      console.log("Entered mouse wheel
-  /*    let wheelDelta = Math.max(-1, Math.min(1, (event.wheelDelta || -event.detail)));
-      if(wheelDelta > 0) {
-        factor = 0.5;
-      }else {
-        factor = 2.0;
-      }
 
-      this.initPointX = event.PageX;
-      this.initPointY = event.PageY;
-  }*/
+
 
   ngOnInit() {
-    this.war.getData().subscribe(data => {
-     this.war.datos = data;
+    this.war.getData('https://swapi.py4e.com/api/starships/?page=1').subscribe(data => {
+     this.datos = data;
+     this.totalPages = round(Number(this.datos.count)/10);
     })
-
     this.getHeight();
+
   }
 
 
  async goTO(url:string) {
    await this.router.navigate([`detalles/`, url]);
  }
+
 
 
 
@@ -60,22 +65,30 @@ export class ListComponent implements OnInit {
 
   @HostListener('window:scroll')
   onScroll():void{
-    const yOffSet = window.pageYOffset;/* obtenemos el numero de pixeles verticales cuando se hace el scrol*/
+    const yOffSet = window.pageYOffset;//!* obtenemos el numero de pixeles verticales cuando se hace el scrol*!/
     const scrollTop = this.document.documentElement.scrollTop;
-    // console.log('yOffSet'+ yOffSet + '//' +'scrollTop' + scrollTop )
     this.showButton = (yOffSet || scrollTop)<30;
-
-
-    // podemos hacer el scroll infinito con este codigo pero podemos usar una  de angular
     if ( yOffSet>0  || scrollTop > 0){
-
-       if (this.war.page > 5){
-         this.war.page=1;
-      }
-       this.war.next()
- }
-
+      //this.document.documentElement.scrollTop=0;
+    }
   }
 
-  // npm install ngx-infinite-scroll --save
-}
+  next() {
+    if(this.pageActual < this.totalPages){
+      this.war.getData(this.datos.next).subscribe(data => {
+        this.datos = data;
+        this.pageActual++;
+      })
+    }
+  }
+
+
+  prev() {
+    if(this.pageActual > 1){
+      this.war.getData(this.datos.previous).subscribe(data => {
+        this.datos = data;
+        this.pageActual--;
+      });
+    }
+    }
+ }

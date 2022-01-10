@@ -15,13 +15,8 @@ export class LocalStorageService {
   }
 
   restartStorage(register?: FormBuilder) {
-    // @ts-ignore
-    const actual = JSON.parse(localStorage.getItem(this.profile));
-    this.verifyProfile=actual;
-    if (!actual) {
-      localStorage.setItem(this.profile, JSON.stringify(register))
-    }
-  }
+   localStorage.setItem(this.profile, JSON.stringify(register))
+ }
 
   checkLogIn(user:string , password:string){
     // @ts-ignore

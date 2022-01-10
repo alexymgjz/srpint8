@@ -15,7 +15,7 @@ export class Starship {
   hyperdrive_rating: string | undefined;
   MGLT: string | undefined;
   starship_class: string | undefined;
-  pilots: string[] | undefined;
+  pilots: any[] | undefined;
   films: string [] | undefined;
   created: string | undefined;
   edited: string | undefined;

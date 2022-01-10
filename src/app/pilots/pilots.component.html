@@ -1,0 +1,29 @@
+<div class="container mt-1 mx-auto">
+  <div class="w-100 d-flex flex-column justify-content-center align-items-center" *ngIf="localStorage != '' else noPilots">
+    <div class="w-100 d-flex p-2 m-2 flex-wrap justify-content-between ">
+      <div @fadeIn class="p-2 m-2 border-5 border-light bg-opacity-75 bg-dark" *ngFor="let object of pilots">
+        <p class="text-light text-nowrap">Name: {{object?.name}}</p>
+        <p class="text-light" *ngIf="object?.height != 'unknown' ">Height: {{object?.height}}</p>
+        <p class="text-light" *ngIf="object?.mass != 'unknown' ">Mass: {{object?.mass}}</p>
+        <p class="text-light" *ngIf="object?.birth_year != 'unknown' ">Birth year: {{object?.birth_year}}</p>
+        <p class="text-light" *ngIf="object?.eye_color != 'unknown' ">Eye color: {{object?.eye_color}}</p>
+        <p class="text-light" *ngIf="object?.gender != 'unknown' ">Gender: {{object?.gender}}</p>
+      </div>
+    </div>
+
+    <button class="w-100 mx-4 btn fs-1 btn-outline-dark"  (click)="goTo()"><< Back</button>
+  </div>
+
+
+  <ng-template #noPilots>
+    <div class="container d-flex flex-column align-items-center justify-content-center">
+      <p class="w-100 d-block text-light fs-3 text-center"> No tenemos pilotos para mostrar</p>
+      <button class="w-100 mx-4 btn fs-1 btn-outline-dark text-center"  (click)="goTo()"><< Back</button>
+    </div>
+  </ng-template>
+
+</div>
+
+
+
+

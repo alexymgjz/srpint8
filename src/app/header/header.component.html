@@ -1,13 +1,14 @@
-<div class="w-100 d-flex justify-content-between sticky-top">
+
+<div class="w-100 d-flex justify-content-between bg-black sticky-top">
 
 
-  <div class="d-flex w-100 justify-content-between align-content-center ">
+  <div class="d-flex w-100 flex-wrap justify-content-lg-between justify-content-sm-center align-content-center ">
     <div class="p-5 text-light"></div>
     <img class="ms-6" src="assets/image/logo.png" width="170px" alt="img">
-    <div class="d-flex gap-0 active-text">
-      <button *ngIf="!localStorage.autenticado" class="btn btn-outline-dark noOutLine text-14 p-0 m-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" (click)="reset() " > LOG IN /</button>
-      <button *ngIf="localStorage.autenticado"  class="btn btn-outline-dark noOutLine text-14 p-0 m-0" data-bs-toggle="modal" data-bs-target="#logout" > LOG OUT</button>
-      <button *ngIf="!localStorage.autenticado" class="btn btn-outline-dark noOutLine text-14 p-0 me-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="reset()">/ SING UP</button>
+    <div class="d-flex gap-0 flex-wrap active-text   text-sm-center">
+      <button *ngIf="!localStorage.autenticado" class="btn btn-outline-dark noOutLine text text-nowrap text-14 p-0 m-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" (click)="reset() " > LOG IN /</button>
+      <button *ngIf="localStorage.autenticado"  class="btn btn-outline-dark noOutLine text text-nowrap text-14 p-0 m-0" data-bs-toggle="modal" data-bs-target="#logout" > LOG OUT</button>
+      <button *ngIf="!localStorage.autenticado" class="btn btn-outline-dark noOutLine text text-nowrap text-14 p-0 me-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="reset()">/ SING UP</button>
     </div>
   </div>
 
@@ -16,7 +17,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade  " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div @fadeIn class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog ">
     <div class="modal-content bg-dark">
       <div class="modal-header">
@@ -56,7 +57,7 @@
   </div>
 </div>
 
-<div class="modal fade  " id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+<div @fadeIn class="modal fade transitions " id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
   <div class="modal-dialog ">
     <div class="modal-content bg-dark">
       <div class="modal-header">
@@ -91,7 +92,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="logout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div @fadeIn class="modal fade transitions " id="logout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content bg-dark">
       <div class="modal-header">

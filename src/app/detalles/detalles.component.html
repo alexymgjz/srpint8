@@ -1,5 +1,5 @@
 
-<div class="d-flex flex-column align-items-center justify-content-center">
+<div @fadeIn class="d-flex flex-column align-items-center justify-content-center">
   <img #asimg src="https://starwars-visualguide.com/assets/img/starships/{{Starship?.id }}.jpg"  (error)="loadDefault()"  alt="img" width="90%">
   <div class="d-flex flex-column w-100  px-5">
     <p class="text-18 text-uppercase h1 fw-bolder pt-4">{{Starship?.name}}</p>
@@ -16,9 +16,13 @@
       <p class=" w-50 text-14">Atmosphering speed: {{Starship?.max_atmosphering_speed}}</p>
       <p class=" w-50 text-14">Crew: {{Starship?.crew}}</p>
     </div>
+    <button @fadeIn class="w-100 mx-4 btn fs-1 btn-outline-dark"  (click)="goToPilots(Starship?.pilots)">Pilots</button>-->
+    <button @fadeIn class="w-100 mx-4 btn fs-1 btn-outline-dark"  (click)="goTo()"><< Back</button>
 
   </div>
- <button class="w-75 mx-4 btn fs-1 btn-outline-dark"  (click)="goTo()"  ><< Back</button>
+
+
+
 
 
 </div>

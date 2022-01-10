@@ -1,30 +1,31 @@
 
 
-
-
-<div #list  class="container-fluid px-4 " *ngIf="localStorage.autenticado else elseBlock" [style.height.px]="screenHeight">
-  <button *ngIf="showButton" (click)="getHeight()">mostrar altura </button>
-  <div class="list-group d-flex d-block p-0 my-0 " >
-    <div class=" d-block bg-gr "   *ngFor="let dato of war.datos?.results; let i = index" >
-      <button class="text-start  w-100 btn bg-gr " (click)="goTO(dato.url)">
-        <span  class="d-block text-decoration-none text-18  bg-opacity-50">Presupuesto: {{dato?.name}}</span>
-        <span class="d-block text-decoration-none  text-14  bg-opacity-50">Nombre:{{dato?.model}}</span>
-      </button>
-  </div>
-    <div class="d-flex w-100">
-      <button class="w-100 text-light btn btn-outline-dark " (click)="war.prev()">Go back</button>
-      <button class="w-100 text-light btn btn-outline-dark " (click)="war.next()">view more</button>
+<div class="container" infiniteScroll [infiniteScrollDistance]="2"  (scrolled)="next()">
+  <div #list   class="container-fluid px-4 " *ngIf="localStorage.autenticado else elseBlock" [style.height.px]="screenHeight">
+    <button *ngIf="showButton" (click)="getHeight()">mostrar altura </button>
+    <div  class="list-group d-flex d-block p-0 my-0 open-close-container" >
+      <div  class="d-block"   *ngFor="let dato of datos?.results; let i = index" >
+        <button class="text-start  w-100 btn bg-gr " (click)="goTO(dato.url)">
+          <span  @fadeIn class="d-block text-decoration-none text-18  bg-opacity-50">Presupuesto: {{dato?.name}}</span>
+          <span   @fadeIn class="d-block text-decoration-none  text-14  bg-opacity-50">Nombre:{{dato?.model}}</span>
+        </button>
+      </div>
+      <div class="d-flex w-100">
+        <button @fadeIn class="w-100 text-light btn btn-outline-dark " (click)="prev()">Prev</button>
+        <button @fadeIn class="w-100 text-light btn btn-outline-dark " (click)="next()">Next page ({{pageActual}}/{{totalPages}})</button>
+      </div>
     </div>
   </div>
+
+
+  <ng-template #elseBlock class="w-100 ">
+
+    <p class="text-center text-18 my-5">You most be Authenticated (<span data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="color: beige; cursor: pointer;"> SING UP </span> )
+      or (<span data-bs-toggle="modal" data-bs-target="#staticBackdrop1" style="color: beige; cursor: pointer;"> LOG IN </span> ).
+      So you can have access to all the ships info.</p>
+
+  </ng-template>
+
 </div>
-
-
-<ng-template #elseBlock class="w-100 ">
-
-  <p class="text-center text-18 my-5">You most  be Authenticated (<span data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="color: beige; cursor: pointer;"> SING UP </span> )
-    or (<span data-bs-toggle="modal" data-bs-target="#staticBackdrop1" style="color: beige; cursor: pointer;"> LOG IN </span> ).
-    So you can have access to all the ships info.</p>
-
-</ng-template>
 
 

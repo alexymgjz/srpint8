@@ -1,27 +1,20 @@
-<!--template: `
-<div
-  class="search-results"
-  infiniteScroll
-  [infiniteScrollDistance]="2"
-  [infiniteScrollThrottle]="50"
-  (scrolled)="onScroll()"
->
-
-})</div>-->
- <app-header></app-header>
+<div class="container">
+  <app-header class="mx-4"></app-header>
 
 
-  <div class="d-flex w-100 justify-content-center border border-dark mt-5">
+  <div class="d-flex w-100 justify-content-center border border-dark ">
     <button class="btn btn-outline-dark text-18" routerLink="home" routerLinkActive="active">HOME</button>
     <button class="btn btn-outline-dark text-18"  routerLink="list" routerLinkActive="active" >STARSHIPS</button>
   </div>
 
-  <router-outlet></router-outlet>
+  <router-outlet #outlet='outlet'></router-outlet>
 
   <br>
   <br>
   <br>
 
+
+</div>
 
 
 

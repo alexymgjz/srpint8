@@ -2,12 +2,16 @@ import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core
 import {WarService} from "../war.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Starship} from "../modelos/startship";
+import {fadeIn, fader, stepper} from "../route-animations";
 
 
 @Component({
   selector: 'app-detalles',
   templateUrl: './detalles.component.html',
-  styleUrls: ['./detalles.component.scss']
+  styleUrls: ['./detalles.component.scss'],
+  animations:[
+    fadeIn,fader,stepper
+  ]
 })
 
 
@@ -16,6 +20,7 @@ export class DetallesComponent implements OnInit {
   // @ts-ignore
   @ViewChild('asimg') img:ElementRef;
   Starship: Starship | undefined;
+  imgExist = false;
 
   id: number = 0;
   constructor(
@@ -30,7 +35,6 @@ export class DetallesComponent implements OnInit {
     // @ts-ignore
     this.id = await this.route.snapshot.paramMap.get('id');
     await this.getStarship('' + this.id);
-
   }
 
   async getStarship(url:string) {
@@ -49,8 +53,14 @@ export class DetallesComponent implements OnInit {
   }
 
   async goTo() {
-
-      await this.router.navigate(['/list']);
-
+     await this.router.navigate(['/list']);
   }
+
+  async goToPilots(pilotos: any) {
+  localStorage.setItem('pilotos',pilotos)  ;
+   await this.router.navigate(['/pilotos']);
+  }
+
+
+
 }
